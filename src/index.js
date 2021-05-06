@@ -1,8 +1,9 @@
-import { use } from './IPFS.js'
+import { use, CID as cid } from './IPFS.js'
 
 // (async () => {
 //   await use()
 // })()
+export const CID = cid
 
 export default async () => {
   await use()
