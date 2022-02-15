@@ -1,29 +1,31 @@
 // from:
 // https://github.com/Gozala/replicator/blob/default/replicator/src/Service/IPFS.js
 //
-import IPFS from './modules/ipfs-core/index.js'
+import IPFS from "./modules/ipfs-core/index.js"
 
 export const CID = IPFS.CID
 export const use =
-/**
-   * @returns {Promise<IPFS>}
-   */
+    /**
+     * @returns {Promise<IPFS>}
+     */
 
-  async () => {
-    // @ts-ignore
-    const context = /** @type {{ipfs: null|Promise<IPFS>|IPFS}} */ (globalThis)
-    const ipfs = context.ipfs
-    if (ipfs == null) {
-      const node = IPFS.create()
-      context.ipfs = node
-      const ipfs = await node
-      context.ipfs = ipfs
-      return ipfs
-    } else {
-      return await ipfs
+    async (config) => {
+        // @ts-ignore
+        const context = /** @type {{ipfs: null|Promise<IPFS>|IPFS}} */ (
+            globalThis
+        )
+        const ipfs = context.ipfs
+        if (ipfs == null) {
+            const node = IPFS.create(config)
+            context.ipfs = node
+            const ipfs = await node
+            context.ipfs = ipfs
+            return ipfs
+        } else {
+            return await ipfs
+        }
     }
-  }
 
-export const start = () => async () => {
-  await use()
+export const start = () => async (config) => {
+    await use(config)
 }
