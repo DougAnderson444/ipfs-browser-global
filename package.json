@@ -1,12 +1,12 @@
 {
     "name": "ipfs-browser-global",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "type": "module",
     "description": "IPFS compiled for the browser",
     "main": "src/index.js",
     "module": "src/index.js",
     "scripts": {
-        "install:ipfs": "esbuild ./node_modules/ipfs-core --bundle --format=esm --sourcemap --main-fields=browser,module,main --inject:./src/node-globals.js --define:process.env.NODE_ENV='\"production\"' --splitting --outdir=./src/modules/ipfs-core",
+        "install:ipfs": "esbuild ./node_modules/ipfs-core --bundle --format=esm --sourcemap --main-fields=browser,module,main --inject:./src/node-globals.js --define:process.env.NODE_ENV='\"production\"' --splitting --outdir=./src/modules/ipfs-core-v-0-14-1",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],

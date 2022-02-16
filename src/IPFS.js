@@ -1,7 +1,7 @@
 // from:
 // https://github.com/Gozala/replicator/blob/default/replicator/src/Service/IPFS.js
 //
-import IPFS from "./modules/ipfs-core/index.js"
+import IPFS from "./modules/ipfs-core/ipfs-core-v-0-14-1.js"
 
 export const CID = IPFS.CID
 export const use =
